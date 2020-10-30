@@ -1,0 +1,51 @@
+.aplication {
+  max-width: 400px;
+  background: linear-gradient(#000, #9001b7);
+
+  border: 2px solid #9001b7;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.btn {
+  background-color: #525252;
+  color: #ffffff;
+  padding: 7px 10px;
+}
+.fas {
+  font-size: 30px;
+  margin: 10px;
+}
+.row {
+  border: 1px solid #9001b7;
+
+  margin: 15px 15px 15px 0;
+  width: 360px;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+  text-transform: capitalize;
+}
+#fahrenheit-link,
+#celsius-link {
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+span {
+  padding: 5px;
+}
+#current-day {
+  padding: 0;
+}
+img {
+  max-width: 60px;
+  color: #ffffff;
+}
