@@ -26,11 +26,8 @@ function currentDate(date) {
 let todayDate = document.querySelector("#current-day");
 todayDate.innerHTML = currentDate(currentTime);
 
-// 2 part
-
+//getting temperature from api
 function search(city) {
-  //getting temperature from api
-
   let apiKey = "62adc1ac7dfc036aa7bc43938cb7257f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   console.log(apiUrl);
@@ -42,8 +39,6 @@ function searchCity(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
   console.log(cityInput.value);
-  // let h1 = document.querySelector("h1");
-  //h1.innerHTML = cityInput.value;
 }
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", searchCity, showTemperature);
@@ -56,7 +51,7 @@ function showLocationTemperature(response) {
   let h1 = document.querySelector("#city");
   h1.innerHTML = response.data.name;
   let locationTemperatureElement = document.querySelector("#today-temperature");
-  locationTemperatureElement.innerHTML = `${locationTemperature}°C`;
+  locationTemperatureElement.innerHTML = `${locationTemperature}`;
 }
 
 function retrievePosition(position) {
@@ -73,10 +68,11 @@ navigator.geolocation.getCurrentPosition(retrievePosition);
 function showTemperature(response) {
   console.log(response.data);
 
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  let temperature = Math.round(celsiusTemperature);
   console.log(temperature);
   let temperatureElement = document.querySelector("#today-temperature");
-  temperatureElement.innerHTML = `${temperature}°C`;
+  temperatureElement.innerHTML = `${temperature}`;
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
   let iconElement = document.querySelector("#icon");
@@ -92,3 +88,28 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
 }
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#today-temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function showCelsiusTemperature(event) {
+  event.preventDefault;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#today-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+search("Lisbon");

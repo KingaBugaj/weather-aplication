@@ -33,11 +33,26 @@ li {
   list-style: none;
   text-transform: capitalize;
 }
-#fahrenheit-link,
+
+#fahrenheit-link {
+  text-decoration: none;
+  color: #ffffff;
+  cursor: default;
+}
 #celsius-link {
   text-decoration: none;
   color: #ffffff;
-  cursor: pointer;
+  cursor: default;
+}
+.active {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
+}
+.active:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: default;
 }
 span {
   padding: 5px;
