@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/f96c90a935.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <script
+      src="https://kit.fontawesome.com/f96c90a935.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -13,6 +16,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -30,62 +37,41 @@
             Search
           </button>
         </form>
-        <div class="row">
-            <div class="col-5">
-        <h1 id = "city"><!--Lisbon--></h1>
-        <p 
-      > Last updated:<br />
-      <span
-      id="current-day">
-      </span>
-      </p>
+        <h1 id="city">
+          <!--Lisbon-->
+        </h1>
+
+        <div class="row" id="main-info">
+          <div class="col-6">
+            <p id="updated">
+              Last updated:<br />
+              <span id="current-day"> </span>
+            </p>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li id="description"></li>
+              <li>Humidity:<span id="humidity"></span>%</li>
+              <li>Wind speed:<span id="wind"></span>km/h</li>
+              <!--</p>-->
+            </ul>
+          </div>
         </div>
-        <div class="col-7">
-        <!--<p>-->
-          <img id="icon" src="" alt="">
-          <!-- <i class="fas fa-cloud-sun"></i> -->
-      <ul>
-        <li id = "description"></li>
-        <li>Humidity:<span id = "humidity"></span>%</li>
-        <li>Wind speed:<span id = "wind"></span>km/h</li>
-        <!--</p>-->
-        </ul>
-        </div>
-       
-</div>
-        <h2><span id="today-temperature">
-          
+        <h2>
+          <span id="today-temperature"></span>
+          <span class="units">
+            <a href="#" id="celsius-link" class="active">°C |</a>
+            <a href="#" id="fahrenheit-link">°F</a>
+            <img id="icon" src="" alt="" />
           </span>
-         <span class = "units">
-            <a href="#" id="celsius-link" class = "active">°C </a>|
-            <a href="#" id="fahrenheit-link"> °F</a>
-          </span> 
         </h2>
 
-        
-          <div class="row">
-            <span>Monday</span>
-          </div>
-          <div class="row">
-            <span>Tuesday</span>
-          </div>
-          <div class="row">
-            <span>Wednesday</span>
-          </div>
-          <div class="row">
-            <span>Thuursday</span>
-          </div>
-          <div class="row">
-            <span>Friday</span>
-          </div>
-        </div>
+        <section>
+          <div class="row" id="forecast"></div>
+        </section>
       </section>
     </div>
-    
-<script src="src/index.js">
 
-</script>
-
-
+    <script src="src/index.js"></script>
   </body>
 </html>
